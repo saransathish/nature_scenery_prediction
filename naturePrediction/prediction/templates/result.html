@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+
+</head>
+<body>
+<h1 style="color: white;text-align: center;">Prediction Result</h1>
+{% if classes == "buildings" %}
+    <div class="div2">
+        <!-- <div> -->
+            <center><img src="{% static 'images/buildings.jpg' %}" class="div3" alt=""></center>
+        <!-- </div> -->
+    </div>
+{% elif classes == "forest" %}
+<div class="div2">
+    <!-- <div> -->
+        <center><img src="{% static 'images/forests.jpg' %}" class="div3" alt=""></center>
+    <!-- </div> -->
+</div>
+{% elif classes == "glacier" %}
+<div class="div2">
+    <!-- <div> -->
+        <center><img src="{% static 'images/glaciers.jpg' %}" class="div3" alt=""></center>
+    <!-- </div> -->
+</div>
+{% elif classes == "mountain" %}
+<div class="div2">
+    <!-- <div> -->
+        <center><img src="{% static 'images/mountains.jpg' %}" class="div3" alt=""></center>
+    <!-- </div> -->
+</div>
+{% elif classes == "sea" %}
+<div class="div2">
+    <!-- <div> -->
+        <center><img src="{% static 'images/sea.jpg' %}" class="div3" alt=""></center>
+    <!-- </div> -->
+</div>
+{% else %}
+<div class="div2">
+    <!-- <div> -->
+        <center><img src="{% static 'images/streets.jpg' %}" class="div3" alt=""></center>
+    <!-- </div> -->
+</div>
+{% endif %}
+
+    <p style="color: white;text-align: center;font-size: 100px;">{{classes}}</p>
+    <a href="return/"><input type="button" id="submit-button" class="neon-button" value="New Prediction"></a>
+
+</body>
+</html>

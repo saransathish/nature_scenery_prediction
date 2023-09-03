@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Nature Prediction </title>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+
+</head>
+<body>
+  <h1 style="color: white;text-align: center;">Image Scene Classification</h1>
+<div class="div1">
+<section class="gallery">
+  <div class="gallery__inner container">
+    <div class="gallery__item">
+      <h3 class="gallery__title">buildings</h3>
+    </div>
+    <div class="gallery__item">
+      <h3 class="gallery__title">forests</h3>
+    </div>
+    <div class="gallery__item --active">
+      <h3 class="gallery__title">mountains</h3>
+    </div>
+    <div class="gallery__item">
+      <h3 class="gallery__title">streets</h3>
+    </div>
+    <div class="gallery__item">
+      <h3 class="gallery__title">sea</h3>
+    </div>
+    <div class="gallery__item">
+      <h3 class="gallery__title">glaciers</h3>
+    </div>
+  </div>
+</section>
+</div>
+<br><br>
+<div class="div1">
+  
+  <form id="image-form" action="predict/" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+    <h1 style="color: white;text-align: center;">New Image Prediction</h1>
+    
+    <div id="drop-container">
+        <p>Drag &amp; Drop an image here or<label for="file-input"> click to select one.</label></p>
+        <input type="file" id="file-input" name="images" accept="image/*">
+    </div>
+    <input type="submit" id="submit-button" class="neon-button" value="Predict">
+    <h1 style="color: white;text-align: center;">Preview image</h1>
+
+    <img id="image-preview" src="" >
+</form>
+<h1 style="color: white;text-align: center;">Try this Example images</h1>
+
+<div id="imageContainer">
+  <img src="{% static '/images/buildings.jpg'%}" class="draggable" draggable="true">
+  <img src="{% static '/images/forests.jpg'%}" class="draggable" draggable="true">
+  <img src="{% static '/images/sea.jpg'%}" class="draggable" draggable="true">
+  <img src="{% static '/images/glaciers.jpg'%}" class="draggable" draggable="true">
+  <img src="{% static '/images/streets.jpg'%}" class="draggable" draggable="true">
+</div>
+</div>
+  <script  src="{% static 'script.js' %}"></script>
+
+</body>
+</html>
